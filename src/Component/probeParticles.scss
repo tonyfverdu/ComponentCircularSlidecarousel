@@ -1,0 +1,65 @@
+@use './myvariables' as v;
+@use './layouts' as l;
+@use './designElement' as d;
+////////////////////////////////////////
+// RESET  /////////////////////////////
+@include d.resetIni;
+
+//  CONTAINER CENTRAL  ///////////////////////////////
+//@include d.designContainerCentral;
+
+.helpPosition {
+  @include l.layoutFlexboxColumCenter;
+  width:  100%;
+  height: 100vh;
+  background-image: v.$gradientSlice;
+  border: 0.3rem solid v.$colorBorderDunkelTrek;
+  padding: 10%;
+}
+
+////////////////////////////////////////////////////////////////////////
+canvas {
+  display:block;
+  //vertical-align: bottom;
+  background:linear-gradient(to bottom, black 70%, rgb(102, 1, 1) 85%, red);
+    
+} // ---- particles.js container ---- //
+#particles-js {
+  position: absolute;
+  width:  100%;
+  height: 100%;
+  background-color: #b61924;
+} // ---- stats.js ---- //
+  
+.count-particles {
+  background: #000022;
+  position: absolute;
+  top:   5%;
+  left:  5%;
+  width: 8%;
+  color: #13e8e9;
+  font-size: 0.8em;
+  text-align: left;
+  text-indent: 4px;
+  line-height: 14px;
+  padding-bottom: 2px;
+  //font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+.js-count-particles {
+  font-size: 1.1em;
+}
+
+#stats,.count-particles {
+  user-select: none;
+  margin-top:  1%;
+  margin-left: 1%;
+}
+#stats {
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
+}
+.count-particles {
+  border-radius: 0 0 3px 3px;
+}
+  

@@ -1,0 +1,93 @@
+@use './myvariables' as v;
+@use './layouts' as l;
+
+//  configuration of Text  //////////////////////////////
+@mixin configurationText1 ($parColor, $parFont-size) {
+  position:  relative;
+  text-align: justify;
+  font-size: $parFont-size;
+  color: $parColor;
+  margin: 1% 0%;
+  padding:1%;
+}
+
+// Configuration of Image  ***********************/
+@mixin figure {
+    position: relative;
+    display:  block;
+    width:    100%;
+    height:   100%;
+    margin: 0% auto;
+}
+  
+@mixin imageGenerall {
+    position: relative;
+    width: 100%;
+    object-fit: cover;
+    image-rendering: optimizeSpeed;
+}
+  
+@mixin backgroundImage {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+//  BUTTONS  ////////////////////////////////
+@mixin buttonType1 {
+    display: block;
+    padding: 0.7em 1.5em;
+    background-color: v.$colorbackgroudLinkedin;
+    border: none;
+    border-radius: 9px;
+    margin: 2% auto;
+
+    color: v.$colorHell;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+@mixin buttonType2 {
+  display: block;
+  float: right;
+  padding: 2% 4%;
+  background-color: v.$backgroundColorHellGray; 
+  border: none;
+  border-radius: 14px;
+  margin: 0% auto;
+  
+  color: v.$colorDunkel;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+//  RESET INI  /////////////////////////////////////////////
+@mixin resetIni {
+  * {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+  }
+  
+  body {
+    width:  100%;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    background-color: v.$backgroundColorIni;
+    overflow: hidden;
+  }
+}
+
+//  CONTAINER CENTRAL  //////////////////////////////////
+@mixin designContainerCentral {
+  @include l.layoutFlexboxRowCenter;
+  height: auto;
+  overflow: hidden;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+    
+  background-color: v.$backgroundColorIni;
+  background-blend-mode: luminosity;
+}

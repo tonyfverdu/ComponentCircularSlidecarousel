@@ -1,0 +1,117 @@
+@use '../Component/reset';
+@use '../Component/myvariables' as v;
+@use '../Component/layouts' as l;
+@use '../Component/designElement' as d;
+@use '../Component/animation' as a;
+
+@import '../Component/probeParticles.scss';
+///////////  CONTAINER CENTRAL  ///////////////////////////////////
+
+.containerCentral {
+    @include d.designContainerCentral;
+}
+
+.helpPosition {
+    @include l.layoutFlexboxRowCenter;
+    background-image: v.$gradientSlice;
+    border: 0.3rem solid v.$colorBorderDunkelTrek;
+    padding: 10%;
+}
+
+//////////////////////////////////////////////////////
+.sliderCircular {
+    @include l.layoutFlexboxRowCenter;
+    width:  200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: rotateSlide 35s linear infinite;
+    
+    .itemCircular {
+        @include l.layoutBlock;
+        position: absolute;
+        top: 0;
+        left:0;
+        width:  100%;
+        height: 100%;
+        transform-origin: center;
+        transform-style: preserve-3d;
+       // transform: rotateY(calc(var(--i)*30deg)) translateZ(550px);
+        
+        
+        $vSlide: 1;
+        @for $vSlide from 1 through 12 {
+           &:nth-child(n + #{$vSlide}) {
+               transform: rotateY((30deg)*$vSlide) translateZ(550px);
+           }
+        }
+   
+        img {
+            @include d.imageGenerall;
+            position: absolute;
+            top: 0;
+            left:0;
+            width: 100%;
+            height: 100%;
+            padding: 2%;
+            border-radius: 14px;
+
+            transition: 0.45s linear;
+
+            &:hover {
+                cursor: pointer;
+                animation: imgAnimation 0.45s ease-in-out forwards;
+            }
+        }
+    }
+}
+
+#bg {
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+@keyframes rotateSlide {
+    0% {
+        transform: perspective(1000px) rotateY(0deg) translateY(-18%);
+    }
+    25% {
+        transform: perspective(1000px) rotateY(90deg) translateY(-18%);
+    }
+    50% {
+        transform: perspective(1000px) rotateY(180deg) translateY(18%);
+    }
+    75% {
+        transform: perspective(1000px) rotateY(270deg) translateY(-18%);
+    }
+    80% {
+        transform: perspective(1000px) rotateY(270deg) translateY(20%);
+    }
+    81% {
+        transform: perspective(1000px) rotateY(273deg) translateY(-20%);
+    }
+    82% {
+        transform: perspective(1000px) rotateY(277deg) translateY(0%);
+    }
+    100% {
+        transform: perspective(1000px) rotateY(360deg) translateY(-18%) scale(1.1);
+    }
+}
+@keyframes imgAnimation {
+    0% {
+        outline: 1px solid v.$colorbackgroudMy;
+        outline-offset: 0px;
+    }
+    50% {
+        outline: 2px solid v.$colorbackgroudMy;
+        outline-offset: 0px
+    }
+    100% {
+        transform: scale(1.2);
+        outline: 3px solid v.$colorbackgroudMy;
+        outline-offset: 1px
+    }
+}
