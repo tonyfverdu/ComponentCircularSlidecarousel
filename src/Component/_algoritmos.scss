@@ -1,9 +1,0 @@
-@use "sass:math";
-
-///////////  RANDOM  //////////////
-
-@function randomPosition ($parPosition) {
-    $randomPosition: Math.random()*$parPosition;
-
-    @return $randomPosition;
-}
