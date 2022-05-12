@@ -1,5 +1,7 @@
 # ComponentCircularSlidecarousel
 
+Sehen:   https://tonyfverdu.github.io/ComponentCircularSlidecarousel/
+
 Another component carousel in Sass (CSS), einfacher ohne Javascript. Mit das library "particles.js" in Hintergrund nur. 
 Ob man will das Camera oder da sehen von slice machen, denn man muss ein script benutzen oder verwenden dieses Component drin andere Component.
 
